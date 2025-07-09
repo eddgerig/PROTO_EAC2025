@@ -1,4 +1,5 @@
 import LessonCard from "./ui/card"
+import { useNavigate } from "react-router-dom"
 
 const lessons = [
   {
@@ -44,6 +45,12 @@ const lessons = [
 ]
 
 export function FeaturedLessons() {
+  const navigate = useNavigate()
+
+  const handleCardClick = (lessonId: number) => {
+    navigate(`/lesson/${lessonId}`)
+  }
+
   return (
     <section className="px-6 py-6">
       <div className="max-w-7xl mx-auto">
@@ -51,13 +58,15 @@ export function FeaturedLessons() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center px-2">
           {lessons.map((lesson) => (
             <div key={lesson.id} className="flex justify-center">
-              <LessonCard
-                title={lesson.title}
-                description=""
-                image={lesson.image}
-                button1Text="Compartir"
-                button2Text="Ver más"
-              />
+              <div onClick={() => handleCardClick(lesson.id)}>
+                <LessonCard
+                  title={lesson.title}
+                  description=""
+                  image={lesson.image}
+                  button1Text="Compartir"
+                  button2Text="Ver más"
+                />
+              </div>
             </div>
           ))}
         </div>

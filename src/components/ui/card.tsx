@@ -23,12 +23,16 @@ export default function LessonCard({
 }: LessonCardProps) {
   return (
     <Card sx={{ 
-      width: '100%', 
-      maxWidth: 420, 
+      width: 320,
+      height: 350,
       backgroundColor: '#1e293b',
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
       border: '4px solid #FFD447',
-      borderRadius: 2
+      borderRadius: 2,
+      cursor: 'pointer',
+      '&:hover': {
+        cursor: 'pointer'
+      }
     }}>
       <Box sx={{ }}>
         <CardMedia
